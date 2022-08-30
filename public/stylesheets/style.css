@@ -1,0 +1,92 @@
+form.signup,
+form.login {
+    margin-top: 50px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    height: 90vh;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: relative;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #dd00f3, #dd00f3);
+    background-size: 1000% 1000%;
+}
+section:before {
+    position: absolute;
+    content: '';
+    height: 200px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.main-section {
+    margin: 0 auto;
+    margin-top: 5%;
+    padding: 0;
+}
+
+.modal-content, .card-body {
+    background-color: #ebedee;
+    opacity: .8;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.user-img img {
+    height: 150px;
+    width: 150px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group input {
+    height: 42px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 18px;
+    padding-left: 54px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-default {
+    font-size: 19px;
+    border-radius: 5px;
+    width: 150px;
+    border: 1px solid #47504e;
+}
+
+.btn-default:hover {
+    background-color: #47504e;
+    border: 1px solid #ebedee;
+    color: #ebedee;
+}
+
+.link {
+    float: right;
+}
+
+.navbar-brand {
+    font-size: medium!important;
+}
+
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+textarea {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger !important;
+}
