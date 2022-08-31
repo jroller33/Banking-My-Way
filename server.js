@@ -1,6 +1,10 @@
 const express = require('express');
-const api = require('./controller/index');
-const sequelize = require('./config/connection');
+const exphbs = require('express-handlebars');
+const path = require('path');
+const hbs = exphbs.create({});
+
+// const api = require('./controller/index');
+// const sequelize = require('./config/connection');
 // const db = require("../models");
 
 // const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -8,28 +12,34 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use(api);
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 
-app.get("/", function(req, res) {
-  if (req.user) {
-      console.log(req.user + " user is logged in");
-      res.redirect("/members");
-  }
-  res.render("signup");
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('./controller/index.js'));
+
+// Starts the server to begin listening
+app.listen(PORT, () => {
+  console.log('Server listening on: http://localhost:' + PORT);
 });
 
-app.get("/login", function(req, res) {
-    if (req.user) {
-        res.redirect("/members");
-    }
-    res.render("login");
-});
+// app.get("/", function(req, res) {
+//   if (req.user) {
+//       console.log(req.user + " user is logged in");
+//       res.redirect("/members");
+//   }
+//   res.render("signup");
+// });
+
+// app.get("/login", function(req, res) {
+//     if (req.user) {
+//         res.redirect("/members");
+//     }
+//     res.render("login");
+// });
 
 // turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
-});
+// sequelize.sync({ force: false }).then(() => {
+//   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+// });
