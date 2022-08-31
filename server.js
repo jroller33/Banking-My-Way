@@ -5,9 +5,9 @@ const hbs = exphbs.create({});
 
 // const api = require('./controller/index');
 // const sequelize = require('./config/connection');
-// const db = require("../models");
+// const db = require("./models");
 
-// const isAuthenticated = require("../config/middleware/isAuthenticated");
+// const isAuthenticated = require("./config/isAuthenticated");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
