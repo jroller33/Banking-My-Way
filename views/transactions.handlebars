@@ -1,0 +1,18 @@
+<div class="col-md-6 project-list">
+    <h3>Transactions:</h3>
+
+    {{#each transactions as |transaction|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/transaction/{{transaction.id}}">{{transaction.description}}</a></h4>
+      </div>
+      {{!-- <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      </div> --}}
+    </div>
+    {{/each}}
+  </div>
+  {{!-- {{/if}} --}}
+</div>
+
+{{!-- <script src="../public/js/transactions.js"></script> --}}

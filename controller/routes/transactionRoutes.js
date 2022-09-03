@@ -2,6 +2,15 @@ const router = require('express').Router();
 const Transaction = require('../../models/Transactions');
 
 
+router.get('/', (req, res) => {     //      /api/transactions - GET all transactions in db
+  Transaction.findAll().then((transactionData) => {
+    res.json(transactionData);
+  });
+});
+
+module.exports = router;
+
+
 // seed the db with transactions to display
 // router.post('/seed', (req, res) => {    
 //   Transaction.bulkCreate([
@@ -37,11 +46,3 @@ const Transaction = require('../../models/Transactions');
 //       res.json(err);
 //     });
 // });
-
-router.get('/', (req, res) => {     // GET all transactions in db
-  Transaction.findAll().then((transactionData) => {
-    res.json(transactionData);
-  });
-});
-
-module.exports = router;

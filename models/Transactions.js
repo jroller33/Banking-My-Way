@@ -5,6 +5,12 @@ class Transaction extends Model {}
 
 Transaction.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     date: {
       type: DataTypes.DATEONLY,
       defaultValue: DataTypes.NOW
@@ -24,10 +30,8 @@ Transaction.init(
         model: 'user',
         key: 'id',
       },
-      },
     },
-
-  
+  },
   {
     sequelize,
     timestamps: false,

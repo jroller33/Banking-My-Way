@@ -15,4 +15,8 @@ router.get('/signup', async (req, res) => {
     res.render('signup');
 });
 
+router.get('/transactions', async (req, res) => {         // this is for the test page, which shows all transactions from GET /api/transactions
+    res.render('transactions');         //    /views/transactions.handlebars
+});
+
 module.exports = router;
