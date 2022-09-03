@@ -4,7 +4,7 @@ const apiRoutes = require('./routes');
 router.use('/api', apiRoutes);
 
 router.get('/', async (req, res) => {       // HTML Routes
-    res.render('login');
+    res.render('login');        //      /views/login.handlebars
 });
 
 router.get('/members', async (req, res) => {
