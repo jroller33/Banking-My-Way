@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const Transaction = require('../../models/Transactions');
-
+const Transaction = require('../../models/Transaction');
 
 router.get('/', (req, res) => {     //      /api/transactions - GET all transactions in db
   Transaction.findAll().then((transactionData) => {
@@ -9,7 +8,6 @@ router.get('/', (req, res) => {     //      /api/transactions - GET all transact
 });
 
 module.exports = router;
-
 
 // seed the db with transactions to display
 // router.post('/seed', (req, res) => {    
