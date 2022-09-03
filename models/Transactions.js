@@ -6,7 +6,8 @@ class Transaction extends Model {}
 Transaction.init(
   {
     date: {
-      type: DataTypes.DATEONLY
+      type: DataTypes.DATEONLY,
+      defaultValue: DataTypes.NOW
     },
     category: {
       type: DataTypes.STRING
@@ -16,8 +17,17 @@ Transaction.init(
     },
     amount: {
       type: DataTypes.DOUBLE        // amount won't always be an integer
-    }
-  },
+    },
+     user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+      },
+    },
+
+  
   {
     sequelize,
     timestamps: false,

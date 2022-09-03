@@ -1,7 +1,7 @@
 const router = require('express').Router();
-// const apiRoutes = require('./routes');
+const apiRoutes = require('./routes');
 
-// router.use('/api', apiRoutes)
+router.use('/api', apiRoutes);
 
 router.get('/', async (req, res) => {
     res.render('login');
