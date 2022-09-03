@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $.get("/api/user_data").then(function(data) {
+    $.get("/api/user_data").then(function(data) {   // GET /api/user_data
         var emailString = data.email;
         var emailSplitArry = emailString.split("@");
         $(".member-name").text(emailSplitArry[0]);
@@ -7,4 +7,4 @@ $(document).ready(function() {
         console.log("email string: ", emailString);
     });
 })
-//more to add at later date
+// more to add at later date

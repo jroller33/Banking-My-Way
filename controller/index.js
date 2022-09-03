@@ -3,7 +3,7 @@ const apiRoutes = require('./routes');
 
 router.use('/api', apiRoutes);
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => {       // HTML Routes
     res.render('login');
 });
 
@@ -14,9 +14,6 @@ router.get('/members', async (req, res) => {
 router.get('/signup', async (req, res) => {
     res.render('signup');
 });
-// // // GET route for notes page                               
-// app.get('/notes', (req, res) =>
-// res.sendFile(path.join(__dirname, './public/notes.html'))
-// );
+
 
 module.exports = router;

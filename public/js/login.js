@@ -19,13 +19,13 @@ $(document).ready(function() {
         passwordInput.val("");
     });
 
-    function loginUser(email, password) {
+    function loginUser(email, password) {               //  POST /api/login
         $.post("/api/login", {
             email: email,
             password: password
         })
         .then(function() {
-            window.location.replace("/members");
+            window.location.replace("/members");           // what's this?
         })
         .catch(handleLoginErr);
     }
