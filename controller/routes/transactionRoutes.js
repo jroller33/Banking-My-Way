@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Transaction = require('../../models/Transaction');
+const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {     //      /api/transactions - GET all transactions in db
   Transaction.findAll().then((transactionData) => {
