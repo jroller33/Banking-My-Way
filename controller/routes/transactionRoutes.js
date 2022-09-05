@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Transaction = require('../../models/Transaction');
 const Budget = require('../../models/Budget');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {     //      /api/transaction - GET all transactions in db
   Transaction.findAll().then((transactionData) => {
@@ -9,8 +9,8 @@ router.get('/', (req, res) => {     //      /api/transaction - GET all transacti
   });
 });
 
-
-router.post('/', withAuth, async (req, res) => {
+// router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newBudget = await Budget.create({
       ...req.body,
@@ -23,21 +23,22 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+// router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const projectData = await Project.destroy({
+    const budgetData = await Budget.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        user_id: req.session.user_id,       // are these needed?
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!budgetData) {
+      res.status(404).json({ message: 'No budget found with this id!' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(budgetData);
   } catch (err) {
     res.status(500).json(err);
   }

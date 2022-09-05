@@ -7,13 +7,13 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      // req.session.logged_in = true;
 
       res.status(200).json(userData);
     })
   } catch (err) {
     // console.log('err userRoutes 15');
-    res.status(400).json(err, userData);
+    res.status(400).json(err);
   }
 });
 
@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      // req.session.logged_in = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });
@@ -55,15 +55,15 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+// router.post('/logout', (req, res) => {
+//   if (req.session.logged_in) {
+//     req.session.destroy(() => {
+//       res.status(204).end();
+//     });
+//   } else {
+//     res.status(404).end();
+//   }
+// });
 
 module.exports = router;
 
