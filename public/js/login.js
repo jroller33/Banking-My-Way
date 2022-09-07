@@ -1,8 +1,8 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const email = document.querySelector('#email-input').value.trim();
+    const password = document.querySelector('#password-input').value.trim();
 
     if (email && password) {
         // Send a POST request to the API endpoint
@@ -11,10 +11,9 @@ const loginFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
         });
-
         if (response.ok) {
-            // If successful, redirect the browser to the profile page
-            document.location.replace('/members');
+            // console.log(response, email, password);
+            document.location.replace('/transaction');
         } else {
             alert(response.statusText);
         }

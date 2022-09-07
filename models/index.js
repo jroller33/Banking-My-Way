@@ -7,12 +7,12 @@ User.hasMany(Transaction, {
   onDelete: 'CASCADE'
 });
 
-Transaction.belongsTo(User, {
-  foreignKey: 'user_id'
-});
+// Transaction.belongsTo(User, {
+//   foreignKey: 'user_id'
+// });
 
-Budget.belongsTo(User, {
-  foreignKey: 'user_id'
-});
+// Budget.belongsTo(User, {
+//   foreignKey: 'user_id'
+// });
 
 module.exports = { User, Transaction, Budget };
