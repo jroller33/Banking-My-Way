@@ -13,7 +13,7 @@ const signupFormHandler = async (event) => {
         console.log(response);
         if (response.ok) {
             // console.log(response.body);
-            document.location.replace('/login')
+            document.location.replace('/transaction')     
         } else {
             console.log(response.body);
 
