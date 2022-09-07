@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const Transaction = require('../../models/Transaction');
-const Budget = require('../../models/Budget');
+const { Transaction } = require('../../models/Transaction');
+const { Budget } = require('../../models/Budget');
 // const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {     //      /api/transaction - GET all transactions in db

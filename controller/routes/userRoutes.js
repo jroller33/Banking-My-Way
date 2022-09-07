@@ -1,15 +1,17 @@
 const router = require('express').Router();
-const User = require('../../models/User');
+const { User } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res) => {    // POST /api/user
   try {
     const userData = await User.create(req.body);
-
+    console.log(userData);
     req.session.save(() => {
       req.session.user_id = userData.id;
-      // req.session.logged_in = true;
+      console.log(req.session.user_id, "req.session.user_id");
+      req.session.logged_in = true;
 
       res.status(200).json(userData);
+  console.log('/api/userRoutes')
     })
   } catch (err) {
     // console.log('err userRoutes 15');
@@ -17,10 +19,11 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/', (req, res) => {     //      /api/user - GET all users in db
+router.get('/', (req, res) => {     //      /api/user - GET all users in db     GET /api/user
   User.findAll().then((userData) => {
     res.json(userData);
   });
+
 });
 
 router.post('/login', async (req, res) => {
