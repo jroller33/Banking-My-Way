@@ -1,14 +1,48 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+{{!-- <div class="row"> --}}
+  {{!-- <div class="col-auto"> --}}
+    {{!-- <h2>Welcome, {{name}}!</h2> --}}
+  {{!-- </div> --}}
+{{!-- </div> --}}
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New Budget:</h3>
+
+    <form class="form new-budget-form">
+      <div class="form-group">
+        <label for="budget-category">budget category:</label>
+        <input class="form-input" type="text" id="budget-category" name="budget-category" />
+      </div>
+      <div class="form-group">
+        <label for="budget-description">budget description:</label>
+        <input class="form-input" type="number" id="budget-description" name="budget-description" />
+      </div>
+      <div class="form-group">
+        <label for="budget-amount">amount:</label>
+        <textarea class="form-input" id="budget-amount" name="budget-amount"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if budget.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Budgets:</h3>
+
+    {{#each budgets as |budget|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/budget/{{budget.id}}">{{budget.category}}</a></h4>
+      </div>
+      {{!-- <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{budget.id}}">DELETE</button>
+      </div> --}}
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
 </div>
+
+<script src="../public/js/budget.js"></script>

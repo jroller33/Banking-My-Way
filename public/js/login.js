@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
             // console.log(response, email, password);
             document.location.replace('/transaction');
         } else {
-            alert(response.statusText);
+            alert("Incorrect Email or Password");
         }
     }
 };

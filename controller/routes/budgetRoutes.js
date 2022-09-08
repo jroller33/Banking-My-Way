@@ -4,7 +4,7 @@ const { Budget } = require('../../models');
 
 // router.post('/', withAuth, async (req, res) => {
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res) => {              //    WORKING
   try {
     const newBudget = await Budget.create({
       ...req.body,

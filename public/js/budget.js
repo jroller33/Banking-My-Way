@@ -22,6 +22,10 @@ const newFormHandler = async (event) => {
     }
   };
   
+document
+    .querySelector('.new-budget-form')
+    .addEventListener('submit', newFormHandler);
+
 //   const delButtonHandler = async (event) => {
 //     if (event.target.hasAttribute('data-id')) {
 //       const id = event.target.getAttribute('data-id');
@@ -37,10 +41,7 @@ const newFormHandler = async (event) => {
 //       }
 //     }
 //   };
-  
-  document
-    .querySelector('.new-budget-form')
-    .addEventListener('submit', newFormHandler);
+
   
 //   document
 //     .querySelector('.budget-list')
