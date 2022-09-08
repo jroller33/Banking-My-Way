@@ -1,10 +1,11 @@
 const router = require('express').Router();
-const { Transaction, Budget } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Transaction } = require('../../models');
+// const { Transaction, Budget } = require('../../models');
+// const withAuth = require('../../utils/auth');
 
-router.get('/', (req, res) => {     //      /api/transaction - GET all transactions in db
-  Transaction.findAll().then((transactionData) => {
-    console.log(transactionData);
+router.get('/', async (req, res) => {     //      /api/transaction - GET all transactions in db
+  await Transaction.findAll().then((transactionData) => {
+    // console.log(transactionData);
     res.json(transactionData);
   });
 });

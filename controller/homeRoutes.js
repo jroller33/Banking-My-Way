@@ -17,27 +17,21 @@ router.get('/signup', async (req, res) => {
 });
 
 router.get('/transaction', async (req, res) => {         // this is for the test page, which shows all transactions from GET /api/transaction
-    try {
-        // get all transactions
-        const transactionData = await Transaction.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['id'],
-                },
-            ],
-        });
+  try {
+      // get all transactions
+      const transactionData = await Transaction.findAll();
 
-        const transactions = transactionData.map((transaction) => transaction.get({ plain: true }));
+      const transactions = transactionData.map((transaction) => transaction.get({ plain: true }));
 
-        res.render('transaction', {
-            transactions,
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+      res.render('transaction', {
+          transactions
+          // logged_in: req.session.logged_in
+      });
+  } catch (err) {
+      res.status(500).json(err);
+  }
 });
+
 
 router.get('/transaction/:id', async (req, res) => {
     try {
