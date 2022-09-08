@@ -1,0 +1,18 @@
+[
+    {
+      "category": "Budget1",
+      "description": "description",
+      "amount": 200
+    },
+    {
+      "category": "Budget2",
+      "description": "description",
+      "amount": 500
+    },
+    {
+      "category": "Budget3",
+      "description": "description",
+      "amount": 800
+    }
+  ]
+  
