@@ -13,7 +13,7 @@ Budget.init(
     },
     date: {
       type: DataTypes.DATEONLY,
-    //   defaultValue: DataTypes.NOW
+      defaultValue: DataTypes.NOW
     },
     category: {
       type: DataTypes.STRING
